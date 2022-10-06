@@ -9,12 +9,21 @@ function init() {
 }
 
 function refreshServerList() {
-    refreshServerStatus(EU_SERVER);
-    refreshServerStatus(US_SERVER);
+    refreshServerStatus(EU_SERVER, () => {
+        refreshServerStatus(US_SERVER);
+    });
+    lastUpdate = new Date()
+    let year = lastUpdate.getFullYear();
+    let month = lastUpdate.getMonth() + 1;
+    let day = lastUpdate.getDay();
+    let hour = lastUpdate.getHours();
+    let minutes = lastUpdate.getMinutes();
+    let seconds = lastUpdate.getSeconds();
+    document.getElementById("last-update").innerHTML = `${year}/${month}/${day} ${hour}:${minutes}:${seconds} GMT`
 }
 
-function refreshServerStatus(number) {
-    prefix = `s${number}-`;
+function refreshServerStatus(number, callback) {
+    prefix = `s${number}`;
     let url = "https://cenation.co.uk/status.php";
     if (number == US_SERVER) {
         url = "https://cenation.co.uk/status2.php";
@@ -23,13 +32,13 @@ function refreshServerStatus(number) {
     .then((response) => response.text())
     .then((response) => {
         let lines = response.split('\n');
-        let status = lines[2].replace('Status: ', '');
+        let status = lines[9].replace('Status: ', '').trim();
         if (status == 'Online') {
-            let players = lines[3].replace('Players: ', '');
-            let playersOnline = players.split('/')[0];
-            let playerAmount = players.split('/')[1];
-            let map = lines[4].replace('Map: ', '');
-            let mode = lines[5].replace('Mode: ', '');
+            let players = lines[10].replace('Players: ', '').trim();
+            let playersOnline = players.split('/')[0].trim();
+            let playerAmount = players.split('/')[1].trim();
+            let map = lines[11].replace('Map: ', '').trim();
+            let mode = lines[12].replace('Mode: ', '').trim();
             if (mode == 'ctf') {
                 mode = mode.toUpperCase();
             }
@@ -51,20 +60,13 @@ function refreshServerStatus(number) {
             document.getElementById(`${prefix}-status`).classList.remove(`text-bg-danger`);
             document.getElementById(`${prefix}-status`).classList.add(`text-bg-danger`);
         }
+        if (callback) {
+            callback();
+        }
     })
     .catch((error) => {
         console.error(error);
-    })
-    .finally(() => {
-        lastUpdate = new Date()
-        let year = lastUpdate.getFullYear();
-        let month = lastUpdate.getMonth() + 1;
-        let day = lastUpdate.getDay();
-        let hour = lastUpdate.getHours();
-        let minutes = lastUpdate.getMinutes();
-        let seconds = lastUpdate.getSeconds();
-        document.getElementById("last-update").innerHTML = `${year}/${month}/${day} ${hour}:${minutes}:${seconds} GMT`
-    })
+    });
 }
 
 function updateServerField(id, value) {
