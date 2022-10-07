@@ -110,3 +110,12 @@ code {
     color: #181818;
     background-color: white!important;
 }
+@media (max-width: 1024px) {
+    .navbar-down {
+        background-color: rgb(24, 24, 24, 1)!important;
+        max-height: initial!important;
+    }
+}
+.navbar:hover {
+    background-color: rgb(24, 24, 24, 1)!important;
+}
