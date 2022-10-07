@@ -88,3 +88,25 @@ code {
 .social-big-icon {
     font-size: 70px;
 }
+.navbar {
+    transition: background-color .25s;
+}
+.navbar-down {
+    background-color: rgb(24, 24, 24, .75)!important;
+    max-height: 55px;
+}
+.navbar-up {
+    background-color: rgb(24, 24, 24, 1)!important;
+}
+.btn-up {
+    position: fixed!important;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.btn-up:hover {
+    color: #181818;
+    background-color: white!important;
+}

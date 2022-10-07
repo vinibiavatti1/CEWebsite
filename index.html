@@ -20,7 +20,7 @@
 <body class="app-black">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark app-black">
+    <nav id="navbar" class="navbar navbar-up navbar-expand-lg bg-dark app-black position-fixed w-100" style="z-index: 999">
         <div class="container">
             <div class="navbar-brand text-light">
                 <img src="./images/ce_icon.png" alt="Codename Eagle Game Logo" style="width: 50px">
@@ -49,6 +49,12 @@
                     <li class="nav-item">
                         <a class="nav-link px-3" href="#faq">FAQ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 btn bg-dark ms-2 d-inline-block" href="https://discord.gg/gGaMUJA9st">
+                            <i class="bi bi-discord me-2"></i>
+                            Join on Discord!
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -66,7 +72,7 @@
     <!-- Game -->
     <section id="game">
         <div class="container">
-            <h1 class="text-light">Codeиame Eagle</h1>
+            <h1 class="text-light mt-3">Codeиame Eagle</h1>
             <div class="divider"></div>
             <p class="text-light">
                 Codename Eagle is an open-world multiplayer first person shooter with drivable land,
@@ -180,7 +186,7 @@
                 <div class="col-12 col-sm-4 col-lg-4 text-center text-light fs-4">
                     <i class="bi bi-cloud-download icon"></i>
                     <div class="pt-2">
-                        1. <a href="https://github.com/vinibiavatti1/CEClient/releases/latest">Download the Launcher</a>
+                        1. <a href="https://github.com/vinibiavatti1/CEClient/releases/latest/download/ceclient.zip">Download the Launcher</a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 text-center text-light fs-4">
@@ -218,11 +224,21 @@
                     <a href="https://discord.gg/gGaMUJA9st">
                         <i class="bi bi-discord social-big-icon click-icon"></i>
                     </a>
+                    <div class="fs-3">
+                        <a href="https://discord.gg/gGaMUJA9st">
+                            Discord
+                        </a>
+                    </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 text-center text-light">
                     <a href="https://www.reddit.com/r/CodenameEagle">
                         <i class="bi bi-reddit social-big-icon click-icon"></i>
                     </a>
+                    <div class="fs-3">
+                        <a href="https://www.reddit.com/r/CodenameEagle">
+                            Reddit
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -393,6 +409,11 @@
     <section class="bg-dark p-4 text-center text-secondary">
         Copyright &copy; <span id="copyright-year"></span> | Made by ViniB with CE Community
     </section>
+
+    <!-- Top button -->
+    <a id="btn-top" href="#home" class="d-none btn btn-dark btn-up bg-dark rounded-circle position-absolute bottom-2 end-2 w-4 h-4">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

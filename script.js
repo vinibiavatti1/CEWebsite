@@ -73,4 +73,19 @@ function updateServerField(id, value) {
     document.getElementById(id).innerHTML = value;
 }
 
+document.addEventListener('scroll', (a) => {
+    let navbar = document.getElementById("navbar");
+    let btnTop = document.getElementById("btn-top");
+    let scroll = document.documentElement.scrollTop;
+    if (scroll < 100) {
+        navbar.classList.remove('navbar-down');
+        navbar.classList.add('navbar-up');
+        btnTop.classList.add('d-none');
+    } else {
+        navbar.classList.remove('navbar-up');
+        navbar.classList.add('navbar-down');
+        btnTop.classList.remove('d-none');
+    }
+});
+
 init();
