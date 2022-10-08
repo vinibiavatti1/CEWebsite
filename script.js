@@ -1,12 +1,14 @@
-const REFRESH_DELAY_MS = 10 * 1000;
+const REFRESH_DELAY_SECONDS = 60;
 const EU_SERVER = 1;
 const US_SERVER = 2;
 let lastUpdate = new Date()
 
 function init() {
     refreshServerList();
-    setInterval(refreshServerList, REFRESH_DELAY_MS);
+    setInterval(refreshServerList, REFRESH_DELAY_SECONDS * 1000);
     initGallery();
+    setUpdateRate();
+    setupScrollEventListener();
 }
 
 function refreshServerList() {
@@ -85,19 +87,25 @@ function copyToClipboard(id) {
     alert(`Address "${content}" copied to clipboard!`)
 }
 
-document.addEventListener('scroll', (a) => {
-    let navbar = document.getElementById("navbar");
-    let btnTop = document.getElementById("btn-top");
-    let scroll = document.documentElement.scrollTop;
-    if (scroll < 100) {
-        navbar.classList.remove('navbar-down');
-        navbar.classList.add('navbar-up');
-        $(btnTop).fadeOut();
-    } else {
-        navbar.classList.remove('navbar-up');
-        navbar.classList.add('navbar-down');
-        $(btnTop).fadeIn();
-    }
-});
+function setUpdateRate() {
+    document.getElementById("update-rate").innerHTML = REFRESH_DELAY_SECONDS;
+}
+
+function setupScrollEventListener() {
+    document.addEventListener('scroll', (a) => {
+        let navbar = document.getElementById("navbar");
+        let btnTop = document.getElementById("btn-top");
+        let scroll = document.documentElement.scrollTop;
+        if (scroll < 100) {
+            navbar.classList.remove('navbar-down');
+            navbar.classList.add('navbar-up');
+            $(btnTop).fadeOut();
+        } else {
+            navbar.classList.remove('navbar-up');
+            navbar.classList.add('navbar-down');
+            $(btnTop).fadeIn();
+        }
+    });
+}
 
 init();
