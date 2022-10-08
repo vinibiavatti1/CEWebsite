@@ -24,7 +24,7 @@
 <body class="app-black">
 
     <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-up navbar-expand-lg bg-dark app-black position-fixed w-100" style="z-index: 999">
+    <nav id="navbar" class="navbar navbar-up navbar-expand-lg bg-dark app-black position-fixed w-100 shadow" style="z-index: 999">
         <div class="container">
             <div class="navbar-brand text-light">
                 <img src="./images/ce_icon.png" alt="Codename Eagle Game Logo" style="width: 50px">
@@ -102,7 +102,7 @@
     </section>
 
     <!-- Images -->
-    <section class="mb-5">
+    <section class="mb-2">
         <div class="container">
             <div class="galleria">
                 <img src="./images/i1.png" class="demo-image" alt="">
@@ -134,7 +134,7 @@
             <div class="table-responsive">
                 <table class="table bg-light table-bordered server-table">
                     <thead>
-                        <tr>
+                        <tr style="background: rgba(0, 0, 0, .1)">
                             <th scope="col">Server</th>
                             <th scope="col">Address</th>
                             <th scope="col">Status</th>
@@ -146,7 +146,10 @@
                     <tbody>
                         <tr>
                             <th>EU Server</th>
-                            <td>89.38.98.12:24711</td>
+                            <td class="position-relative">
+                                <span id="ip1">89.38.98.12:24711</span>
+                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon" onclick="copyToClipboard('ip1')"></i>
+                            </td>
                             <td><span class="badge text-bg-danger" id="s1-status">--</span></td>
                             <td><span id="s1-players-online">--</span> / <span id="s1-players-amount">--</span></td>
                             <td id="s1-map">--</td>
@@ -154,7 +157,10 @@
                         </tr>
                         <tr>
                             <th>US Server</th>
-                            <td>67.199.173.146:24711</td>
+                            <td class="position-relative">
+                                <span id="ip2">67.199.173.146:24711</span>
+                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon" onclick="copyToClipboard('ip2')"></i>
+                            </td>
                             <td><span class="badge text-bg-danger" id="s2-status">--</span></td>
                             <td><span id="s2-players-online">--</span> / <span id="s2-players-amount">--</span></td>
                             <td id="s2-map">--</td>
@@ -163,7 +169,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="text-secondary">Last Update: <span id="last-update"></span></div>
+            <div class="text-secondary">Last Update: <span id="last-update"></span> (Update each 10 seconds)</div>
         </div>
     </section>
 
@@ -190,7 +196,7 @@
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 text-center text-light fs-4">
                     <i class="bi bi-globe icon"></i>
-                    <div class="pt-2">3. Join into the Server!</div>
+                    <div class="pt-2">3. Choose a Server and Join!</div>
                 </div>
             </div>
             <div class="mt-5 text-secondary p-2 bg-dark rounded">
@@ -199,7 +205,8 @@
                 Processor (CPU): Intel Pentium 200 MMX <br>
                 System memory (RAM): 32 MB<br>
                 Hard disk drive (HDD): 380 MB<br>
-                Video card (GPU): 4 MB of VRAM DirectX 6.1 compatible
+                Video card (GPU): 4 MB of VRAM DirectX 6.1 compatible<br>
+                NOTE: If you are using the Launcher, be sure the <a href="https://www.python.org/">Python</a> is installed in your environment.
             </div>
         </div>
     </section>
@@ -296,10 +303,10 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq9">
+                data-bs-target="#faq4">
                 Is Codename Eagle free?
             </button>
-            <div class="collapse mb-2" id="faq9">
+            <div class="collapse mb-2" id="faq4">
                 <div class="card card-body bg-dark text-light">
                     The multiplayer demo version of the game is freeware. This version contains everything you need to play on multiplayer.
                     If you want to play on single player, the CD-ROM of the game is required.  
@@ -307,10 +314,10 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq4">
+                data-bs-target="#faq5">
                 How to coordinate games?
             </button>
-            <div class="collapse mb-2" id="faq4">
+            <div class="collapse mb-2" id="faq5">
                 <div class="card card-body bg-dark text-light">
                     Join our <a href="https://discord.gg/gGaMUJA9st">Discord</a> to speak to real codename eagle players
                     instantly!
@@ -318,10 +325,10 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq5">
+                data-bs-target="#faq6">
                 How to change game settings?
             </button>
-            <div class="collapse mb-2" id="faq5">
+            <div class="collapse mb-2" id="faq6">
                 <div class="card card-body bg-dark text-light">
                     If you are using <a href="https://github.com/vinibiavatti1/CEClient/releases/latest">CEClient</a>,
                     you can change
@@ -338,10 +345,10 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq6">
+                data-bs-target="#faq7">
                 How do I make Codename Eagle work with Windows 10?
             </button>
-            <div class="collapse mb-2" id="faq6">
+            <div class="collapse mb-2" id="faq7">
                 <div class="card card-body bg-dark text-light">
                     For some, it will work without issue. If you are experiencing a black screen or the error "InitD3D failed", 
                     or other graphical issues, these can be resolved by adding the dgVoodoo directx DLL's to your CE installation 
@@ -352,10 +359,10 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq7">
+                data-bs-target="#faq8">
                 Does Codename Eagle work on Linux?
             </button>
-            <div class="collapse mb-2" id="faq7">
+            <div class="collapse mb-2" id="faq8">
                 <div class="card card-body bg-dark text-light">
                     Yes! The game runs just fine using <b>Wine</b> on both Linux and Mac OSX. Be sure to use a 32-bit WINEPREFIX and 
                     enable the settings checkbox for "Automatically capture the mouse in full-screen windows".
@@ -363,13 +370,26 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#faq8">
+                data-bs-target="#faq9">
                 I never played this game before. What can I do?
             </button>
-            <div class="collapse mb-2" id="faq8">
+            <div class="collapse mb-2" id="faq9">
                 <div class="card card-body bg-dark text-light">
                     Join on any available server and wait some minutes there. Certainly, some player will join to introduce you and to help
                     with any question you have.
+                </div>
+            </div>
+
+            <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq10">
+                I had an error when I ran CEClient. What can I do?
+            </button>
+            <div class="collapse mb-2" id="faq10">
+                <div class="card card-body bg-dark text-light">
+                    If the error is about <b>Python DLL</b>, be sure you have <a href="https://www.python.org/">Python</a> installed in your environment. 
+                    You just need to download the last version of the language and install it.<br>
+                    If it is another error, please, open an issue in the <a href="https://github.com/vinibiavatti1/CEClient">CEClient Github Repository</a>, 
+                    and the community will check and solve it ASAP.
                 </div>
             </div>
         </div>
@@ -417,7 +437,7 @@
     </section>
 
     <!-- Top button -->
-    <a id="btn-top" href="#home" class="d-none btn btn-dark btn-up bg-dark rounded-circle position-absolute bottom-2 end-2 w-4 h-4">
+    <a id="btn-top" href="#home" class="btn btn-dark btn-up bg-dark rounded-circle position-absolute bottom-2 end-2 w-4 h-4" style="display: none;">
         <i class="bi bi-arrow-up-short"></i>
     </a>
 

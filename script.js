@@ -79,6 +79,12 @@ function initGallery() {
     Galleria.run('.galleria');
 }
 
+function copyToClipboard(id) {
+    let content = document.getElementById(id).innerHTML;
+    navigator.clipboard.writeText(content);
+    alert(`Address "${content}" copied to clipboard!`)
+}
+
 document.addEventListener('scroll', (a) => {
     let navbar = document.getElementById("navbar");
     let btnTop = document.getElementById("btn-top");
@@ -86,11 +92,11 @@ document.addEventListener('scroll', (a) => {
     if (scroll < 100) {
         navbar.classList.remove('navbar-down');
         navbar.classList.add('navbar-up');
-        btnTop.classList.add('d-none');
+        $(btnTop).fadeOut();
     } else {
         navbar.classList.remove('navbar-up');
         navbar.classList.add('navbar-down');
-        btnTop.classList.remove('d-none');
+        $(btnTop).fadeIn();
     }
 });
 
