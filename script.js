@@ -6,6 +6,7 @@ let lastUpdate = new Date()
 function init() {
     refreshServerList();
     setInterval(refreshServerList, REFRESH_DELAY_MS);
+    initGallery();
 }
 
 function refreshServerList() {
@@ -71,6 +72,11 @@ function refreshServerStatus(number, callback) {
 
 function updateServerField(id, value) {
     document.getElementById(id).innerHTML = value;
+}
+
+function initGallery() {
+    Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js');
+    Galleria.run('.galleria');
 }
 
 document.addEventListener('scroll', (a) => {

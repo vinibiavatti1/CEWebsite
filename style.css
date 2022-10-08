@@ -119,3 +119,6 @@ code {
 .navbar:hover {
     background-color: rgb(24, 24, 24, 1)!important;
 }
+.galleria {
+    min-height:200px
+}

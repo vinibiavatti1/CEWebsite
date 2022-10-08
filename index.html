@@ -15,6 +15,10 @@
     air and sea vehicles.">
     <meta name="keywords" content="Codename, Eagle, Game, Battlefield, Old, FPS, Shoot, DICE, Refraction, Games, Multiplayer, Vehicles, Open, World, Free">
     <meta name="author" content="ViniB">
+
+    <!-- Gallery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
 </head>
 
 <body class="app-black">
@@ -100,33 +104,24 @@
     <!-- Images -->
     <section class="mb-5">
         <div class="container">
-            <div class="row mb-3">
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i1.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i2.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i3.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i4.png" class="demo-image" alt="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i5.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i6.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i7.png" class="demo-image" alt="">
-                </div>
-                <div class="col col-12 col-sm-6 col-lg-3">
-                    <img src="./images/i8.png" class="demo-image" alt="">
-                </div>
+            <div class="galleria">
+                <img src="./images/i1.png" class="demo-image" alt="">
+                <img src="./images/i2.jpg" class="demo-image" alt="">
+                <img src="./images/i3.png" class="demo-image" alt="">
+                <img src="./images/i4.png" class="demo-image" alt="">
+                <img src="./images/i5.jpg" class="demo-image" alt="">
+                <img src="./images/i6.png" class="demo-image" alt="">
+                <img src="./images/i7.png" class="demo-image" alt="">
+                <img src="./images/i8.png" class="demo-image" alt="">
+                <img src="./images/i9.jpg" class="demo-image" alt="">
+                <img src="./images/i10.jpg" class="demo-image" alt="">
+                <img src="./images/i11.jpg" class="demo-image" alt="">
+                <img src="./images/i12.png" class="demo-image" alt="">
+                <img src="./images/i13.png" class="demo-image" alt="">
+                <img src="./images/i14.png" class="demo-image" alt="">
+                <img src="./images/i15.png" class="demo-image" alt="">
+                <img src="./images/i16.png" class="demo-image" alt="">
+                <img src="./images/i17.png" class="demo-image" alt="">
             </div>
         </div>
     </section>
@@ -301,6 +296,17 @@
             </div>
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq9">
+                Is Codename Eagle free?
+            </button>
+            <div class="collapse mb-2" id="faq9">
+                <div class="card card-body bg-dark text-light">
+                    The multiplayer demo version of the game is freeware. This version contains everything you need to play on multiplayer.
+                    If you want to play on single player, the CD-ROM of the game is required.  
+                </div>
+            </div>
+
+            <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#faq4">
                 How to coordinate games?
             </button>
@@ -358,11 +364,11 @@
 
             <button class="btn btn-faq bg-dark text-light mb-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#faq8">
-                I never play this game before. What can I do?
+                I never played this game before. What can I do?
             </button>
             <div class="collapse mb-2" id="faq8">
                 <div class="card card-body bg-dark text-light">
-                    Join in any available server and wait some minutes there. Certainly some player will join to introduce you and to help
+                    Join on any available server and wait some minutes there. Certainly, some player will join to introduce you and to help
                     with any question you have.
                 </div>
             </div>
@@ -406,7 +412,7 @@
     </footer>
 
     <!-- Copyright -->
-    <section class="bg-dark p-4 text-center text-secondary">
+    <section class="bg-dark p-3 text-center text-secondary">
         Copyright &copy; <span id="copyright-year"></span> | Made by ViniB with CE Community
     </section>
 
