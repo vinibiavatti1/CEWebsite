@@ -13,18 +13,21 @@
     <!-- SEO -->
     <meta name="description" content="Codename Eagle Multiplayer Website. Codename Eagle is an open-world multiplayer first person shooter with drivable land,
     air and sea vehicles.">
-    <meta name="keywords" content="Codename, Eagle, Game, Battlefield, Old, FPS, Shoot, DICE, Refraction, Games, Multiplayer, Vehicles, Open, World, Free">
+    <meta name="keywords"
+        content="Codename, Eagle, Game, Battlefield, Old, FPS, Shoot, DICE, Refraction, Games, Multiplayer, Vehicles, Open, World, Free">
     <meta name="author" content="ViniB">
 
     <!-- Gallery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
 </head>
 
 <body class="app-black">
 
     <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-up navbar-expand-lg bg-dark app-black position-fixed w-100 shadow" style="z-index: 999">
+    <nav id="navbar" class="navbar navbar-up navbar-expand-lg bg-dark app-black position-fixed w-100 shadow"
+        style="z-index: 999">
         <div class="container">
             <div class="navbar-brand text-light">
                 <img src="./images/ce_icon.png" alt="Codename Eagle Game Logo" style="width: 50px">
@@ -148,7 +151,8 @@
                             <th>EU Server</th>
                             <td class="position-relative">
                                 <span id="ip1">89.38.98.12:24711</span>
-                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon" onclick="copyToClipboard('ip1')"></i>
+                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
+                                    onclick="copyToClipboard('ip1')"></i>
                             </td>
                             <td><span class="badge text-bg-danger" id="s1-status">--</span></td>
                             <td><span id="s1-players-online">--</span> / <span id="s1-players-amount">--</span></td>
@@ -159,7 +163,8 @@
                             <th>US Server</th>
                             <td class="position-relative">
                                 <span id="ip2">67.199.173.146:24711</span>
-                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon" onclick="copyToClipboard('ip2')"></i>
+                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
+                                    onclick="copyToClipboard('ip2')"></i>
                             </td>
                             <td><span class="badge text-bg-danger" id="s2-status">--</span></td>
                             <td><span id="s2-players-online">--</span> / <span id="s2-players-amount">--</span></td>
@@ -169,7 +174,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="text-secondary">Last Update: <span id="last-update"></span> (Update each <span id="update-rate"></span> seconds)</div>
+            <div class="text-secondary">Last Update: <span id="last-update"></span> (Update each <span
+                    id="update-rate"></span> seconds)</div>
         </div>
     </section>
 
@@ -187,7 +193,9 @@
                 <div class="col-12 col-sm-4 col-lg-4 text-center text-light fs-4">
                     <i class="bi bi-cloud-download icon"></i>
                     <div class="pt-2">
-                        1. <a href="https://github.com/vinibiavatti1/CEClient/releases/latest/download/ceclient.zip">Download the Launcher</a>
+                        1. <a
+                            href="https://github.com/vinibiavatti1/CEClient/releases/latest/download/ceclient.zip">Download
+                            the Launcher</a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 text-center text-light fs-4">
@@ -206,7 +214,8 @@
                 System memory (RAM): 32 MB<br>
                 Hard disk drive (HDD): 380 MB<br>
                 Video card (GPU): 4 MB of VRAM DirectX 6.1 compatible<br>
-                NOTE: If you are using the Launcher, be sure the <a href="https://www.python.org/">Python</a> is installed in your environment.
+                NOTE: If you are using the Launcher, be sure the <a href="https://www.python.org/">Python</a> is
+                installed in your environment.
             </div>
         </div>
     </section>
@@ -217,8 +226,10 @@
             <h2 class="text-light">Community</h2>
             <div class="divider"></div>
             <p class="text-light">
-                We are waiting for you player, to have fun and appreciate this unforgettable game. Our community is nice, we prize 
-                the flexibility, the respect and the fun moments. We want to grow, and make the game to grow with us too. If you like
+                We are waiting for you player, to have fun and appreciate this unforgettable game. Our community is
+                nice, we prize
+                the flexibility, the respect and the fun moments. We want to grow, and make the game to grow with us
+                too. If you like
                 to code, be free to join and contribute for our projects. Till soon!
             </p>
             <div class="pt-3 row">
@@ -308,8 +319,9 @@
             </button>
             <div class="collapse mb-2" id="faq4">
                 <div class="card card-body bg-dark text-light">
-                    The multiplayer demo version of the game is freeware. This version contains everything you need to play on multiplayer.
-                    If you want to play on single player, the CD-ROM of the game is required.  
+                    The multiplayer demo version of the game is freeware. This version contains everything you need to
+                    play on multiplayer.
+                    If you want to play on single player, the CD-ROM of the game is required.
                 </div>
             </div>
 
@@ -350,10 +362,14 @@
             </button>
             <div class="collapse mb-2" id="faq7">
                 <div class="card card-body bg-dark text-light">
-                    For some, it will work without issue. If you are experiencing a black screen or the error "InitD3D failed", 
-                    or other graphical issues, these can be resolved by adding the dgVoodoo directx DLL's to your CE installation 
-                    folder. These files will emulate older versions of directX and let you run games such as CE on modern operating 
-                    systems. You can get them from here. If you have any issues with setting this up, feel free to reach out on 
+                    For some, it will work without issue. If you are experiencing a black screen or the error "InitD3D
+                    failed",
+                    or other graphical issues, these can be resolved by adding the dgVoodoo directx DLL's to your CE
+                    installation
+                    folder. These files will emulate older versions of directX and let you run games such as CE on
+                    modern operating
+                    systems. You can get them from here. If you have any issues with setting this up, feel free to reach
+                    out on
                     <a href="https://discord.gg/gGaMUJA9st">Discord</a>!
                 </div>
             </div>
@@ -364,7 +380,8 @@
             </button>
             <div class="collapse mb-2" id="faq8">
                 <div class="card card-body bg-dark text-light">
-                    Yes! The game runs just fine using <b>Wine</b> on both Linux and Mac OSX. Be sure to use a 32-bit WINEPREFIX and 
+                    Yes! The game runs just fine using <b>Wine</b> on both Linux and Mac OSX. Be sure to use a 32-bit
+                    WINEPREFIX and
                     enable the settings checkbox for "Automatically capture the mouse in full-screen windows".
                 </div>
             </div>
@@ -375,7 +392,8 @@
             </button>
             <div class="collapse mb-2" id="faq9">
                 <div class="card card-body bg-dark text-light">
-                    Join on any available server and wait some minutes there. Certainly, some player will join to introduce you and to help
+                    Join on any available server and wait some minutes there. Certainly, some player will join to
+                    introduce you and to help
                     with any question you have.
                 </div>
             </div>
@@ -386,9 +404,11 @@
             </button>
             <div class="collapse mb-2" id="faq10">
                 <div class="card card-body bg-dark text-light">
-                    If the error is about <b>Python DLL</b>, be sure you have <a href="https://www.python.org/">Python</a> installed in your environment. 
+                    If the error is about <b>Python DLL</b>, be sure you have <a
+                        href="https://www.python.org/">Python</a> installed in your environment.
                     You just need to download the last version of the language and install it.<br>
-                    If it is another error, please, open an issue in the <a href="https://github.com/vinibiavatti1/CEClient">CEClient Github Repository</a>, 
+                    If it is another error, please, open an issue in the <a
+                        href="https://github.com/vinibiavatti1/CEClient">CEClient Github Repository</a>,
                     and the community will check and solve it ASAP.
                 </div>
             </div>
@@ -404,7 +424,7 @@
                         <h4 class="mb-3">Codeиame Eagle</h4>
                         <img src="./images/ce_icon.png" alt="Codename Eagle Game Logo" style="width: 80px">
                         <p class="mt-3">
-                            An open-world multiplayer first person shooter with drivable land, air and sea vehicles. 
+                            An open-world multiplayer first person shooter with drivable land, air and sea vehicles.
                         </p>
                     </div>
                 </div>
@@ -422,9 +442,12 @@
                     <div class="mb-4">
                         <h4 class="mb-3">Social</h4>
                         <a href="https://discord.gg/gGaMUJA9st"><i class="bi bi-discord fs-2 me-2 click-icon"></i></a>
-                        <a href="https://www.reddit.com/r/CodenameEagle"><i class="bi bi-reddit fs-2 me-2 click-icon"></i></a>
-                        <a href="https://www.facebook.com/CodenameEagleMultiPlayer"><i class="bi bi-facebook fs-2 me-2 click-icon"></i></a>
-                        <a href="https://www.youtube.com/channel/UCh0doaaWg1QnEQk7ThqYqJQ"><i class="bi bi-youtube fs-2 click-icon"></i></a>
+                        <a href="https://www.reddit.com/r/CodenameEagle"><i
+                                class="bi bi-reddit fs-2 me-2 click-icon"></i></a>
+                        <a href="https://www.facebook.com/CodenameEagleMultiPlayer"><i
+                                class="bi bi-facebook fs-2 me-2 click-icon"></i></a>
+                        <a href="https://www.youtube.com/channel/UCh0doaaWg1QnEQk7ThqYqJQ"><i
+                                class="bi bi-youtube fs-2 click-icon"></i></a>
                     </div>
                 </div>
             </div>
@@ -437,7 +460,9 @@
     </section>
 
     <!-- Top button -->
-    <a id="btn-top" href="#home" class="btn btn-dark btn-up bg-dark rounded-circle position-absolute bottom-2 end-2 w-4 h-4" style="display: none;">
+    <a id="btn-top" href="#home"
+        class="btn btn-dark btn-up bg-dark rounded-circle position-absolute bottom-2 end-2 w-4 h-4"
+        style="display: none;">
         <i class="bi bi-arrow-up-short"></i>
     </a>
 

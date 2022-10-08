@@ -4,8 +4,10 @@ const US_SERVER = 2;
 let lastUpdate = new Date()
 
 function init() {
-    refreshServerList();
-    setInterval(refreshServerList, REFRESH_DELAY_SECONDS * 1000);
+    if (window.location.hostname) {
+        refreshServerList();
+        setInterval(refreshServerList, REFRESH_DELAY_SECONDS * 1000);
+    }
     initGallery();
     setUpdateRate();
     setupScrollEventListener();
