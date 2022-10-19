@@ -17,6 +17,7 @@
 	
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="./images/ce_icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/ce_icon.ico" >
 
     <!-- Open Graph -->
     <meta property="og:title" content="Codename Eagle" />
@@ -29,6 +30,43 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          "name": "Codename Eagle",
+          "url": "https://cenation.co.uk",
+          "image": "./images/ce_icon.ico",
+          "description": "Codename Eagle Multiplayer Website. Codename Eagle is an open-world multiplayer first person shooter with drivable land, air and sea vehicles.",
+          "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"8.7"
+          },
+          "author":{
+            "@type":"Organization",
+            "name":"Refraction Games",
+            "url":"https://www.ea.com/"
+        },
+          "publisher":"Take-Two Interactive",
+          "genre":["Action (Shooter)","3D","1st Person","open world"],
+          "memoryRequirements":"32 Mb",
+          "storageRequirements":"380 Mb",
+          "gamePlatform":["PC game "],
+          "softwareAddOn":{
+            "@type":"SoftwareApplication",
+            "name":"Codename Eagle Multiplayer",
+            "url":"https://cenation.co.uk"
+          },
+          "associatedMedia":{
+            "@type":"VideoObject",
+            "name":"Codename Eagle Multiplayer Video",
+            "duration":"PT3M4S",
+            "thumbnail":"./videos/website video.mp4"
+          }
+        }
+    </script>
 </head>
 
 <body class="app-black">
@@ -160,7 +198,7 @@
                             <td class="position-relative">
                                 <span id="ip1">89.38.98.12:24711</span>
                                 <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
-                                    onclick="copyToClipboard('ip1')"></i>
+                                    onclick="copyToClipboard('ip1')" title="Copy"></i>
                             </td>
                             <td><span class="badge text-bg-danger" id="s1-status">--</span></td>
                             <td><span id="s1-players-online">--</span> / <span id="s1-players-amount">--</span></td>
@@ -172,7 +210,7 @@
                             <td class="position-relative">
                                 <span id="ip2">67.199.173.146:24711</span>
                                 <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
-                                    onclick="copyToClipboard('ip2')"></i>
+                                    onclick="copyToClipboard('ip2')" title="Copy"></i>
                             </td>
                             <td><span class="badge text-bg-danger" id="s2-status">--</span></td>
                             <td><span id="s2-players-online">--</span> / <span id="s2-players-amount">--</span></td>
