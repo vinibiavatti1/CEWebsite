@@ -196,37 +196,26 @@
                             <th scope="col">Mode</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th>EU Server</th>
-                            <td class="position-relative">
-                                <span id="ip1">89.38.98.12:24711</span>
-                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
-                                    onclick="copyToClipboard('ip1')" title="Copy"></i>
-                            </td>
-                            <td><span class="badge text-bg-danger" id="s1-status">--</span></td>
-                            <td><span id="s1-players-online">--</span> / <span id="s1-players-amount">--</span></td>
-                            <td id="s1-map">--</td>
-                            <td id="s1-mode">--</td>
-                        </tr>
-                        <tr>
-                            <th>US Server</th>
-                            <td class="position-relative">
-                                <span id="ip2">67.199.173.146:24711</span>
-                                <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon"
-                                    onclick="copyToClipboard('ip2')" title="Copy"></i>
-                            </td>
-                            <td><span class="badge text-bg-danger" id="s2-status">--</span></td>
-                            <td><span id="s2-players-online">--</span> / <span id="s2-players-amount">--</span></td>
-                            <td id="s2-map">--</td>
-                            <td id="s2-mode">--</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="server-list"></tbody>
                 </table>
             </div>
-            <div class="text-secondary">Last Update: <span id="last-update"></span> (Update each <span
-                    id="update-rate"></span> seconds)</div>
+            <div class="text-secondary">Last Update: 
+                <span id="last-update"></span> (Update each <span id="update-rate"></span> seconds)
+            </div>
         </div>
+        <template id="server-record-template">
+            <tr>
+                <th>{{NAME}}</th>
+                <td class="position-relative">
+                    <span id="ip-{{ID}}">{{ADDRESS}}</span>
+                    <i class="bi bi-clipboard-check position-absolute end-0 top-0 me-2 mt-2 click-icon" onclick="copyToClipboard('ip-{{ID}}')" title="Copy"></i>
+                </td>
+                <td><span class="badge {{STATUS_COLOR}}" id="s1-status">{{STATUS}}</span></td>
+                <td><span id="s1-players-online">{{ONLINE_PLAYERS}}</span> / <span id="s1-players-amount">{{MAX_PLAYERS}}</span></td>
+                <td id="s1-map">{{MAP}}</td>
+                <td id="s1-mode">{{MODE}}</td>
+            </tr>
+        </template>
     </section>
 
     <!-- How to Play -->
@@ -469,9 +458,7 @@
             </button>
             <div class="collapse mb-2" id="faq11">
                 <div class="card card-body bg-dark text-light">
-                    If the error is about <b>Python DLL</b>, try to install <a
-                        href="https://www.python.org/">Python</a> in your environment, and try again.<br>
-                    If it is another error, please, open an issue in the <a
+                    Please, open an issue in the <a
                         href="https://github.com/vinibiavatti1/CEClient">CEClient Github Repository</a>,
                     and the community will check and solve it ASAP.
                 </div>

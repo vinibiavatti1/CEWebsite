@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Status</title>
+    </head>
+    <body>
+        <div class="container">
+            <pre>==Server Status==
+
+Status: Online
+Players: 0/28
+Map: No mans land
+Mode: ctf
+
+Updated: 2023-04-18 16:34:19 GMT
+</pre>        </div>
+        <style>
+        .container {
+            width: 10%;
+            margin: 1 auto;
+        }
+        </style>
+    </body>
+</html>

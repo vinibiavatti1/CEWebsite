@@ -1,6 +1,9 @@
+const MOCK_DATA = true;
 const REFRESH_DELAY_SECONDS = 60;
-const EU_SERVER = 1;
-const US_SERVER = 2;
+const SERVERS = [
+    { id: 1, name: "Europe (Netherlands)", address: "89.38.98.12:24711", statusUrl: "https://cenation.co.uk/status.php", mockStatusUrl: "./mock.txt" },
+]
+
 let lastUpdate = new Date()
 
 function init() {
@@ -13,69 +16,66 @@ function init() {
     setupScrollEventListener();
 }
 
+function clearServerList() {
+    document.getElementById("server-list").innerHTML = '';
+}
+
 function refreshServerList() {
-    refreshServerStatus(EU_SERVER, () => {
-        refreshServerStatus(US_SERVER);
+    clearServerList();
+    SERVERS.forEach(server => {
+        refreshServer(server);
     });
+    refreshUpdateTime();
+}
+
+function refreshUpdateTime() {
     lastUpdate = new Date()
     let year = lastUpdate.getFullYear();
-    let month = lastUpdate.getMonth() + 1;
-    let day = lastUpdate.getDay();
-    let hour = lastUpdate.getHours();
-    let minutes = lastUpdate.getMinutes();
-    let seconds = lastUpdate.getSeconds();
+    let month = padZero(lastUpdate.getMonth() + 1);
+    let day = padZero(lastUpdate.getDate());
+    let hour = padZero(lastUpdate.getHours());
+    let minutes = padZero(lastUpdate.getMinutes());
+    let seconds = padZero(lastUpdate.getSeconds());
     document.getElementById("last-update").innerHTML = `${year}/${month}/${day} ${hour}:${minutes}:${seconds} GMT`
 }
 
-function refreshServerStatus(number, callback) {
-    prefix = `s${number}`;
-    let url = "https://cenation.co.uk/status.php";
-    if (number == US_SERVER) {
-        url = "https://cenation.co.uk/status2.php";
-    }
-    fetch(url)
-    .then((response) => response.text())
-    .then((response) => {
-        let lines = response.split('\n');
-        let status = lines[9].replace('Status: ', '').trim();
-        if (status == 'Online') {
-            let players = lines[10].replace('Players: ', '').trim();
-            let playersOnline = players.split('/')[0].trim();
-            let playerAmount = players.split('/')[1].trim();
-            let map = lines[11].replace('Map: ', '').trim();
-            let mode = lines[12].replace('Mode: ', '').trim();
-            if (mode == 'ctf') {
-                mode = mode.toUpperCase();
+function refreshServer(server) {
+    let template = $("#server-record-template").html();
+    fetch(MOCK_DATA ? server.mockStatusUrl : server.statusUrl)
+        .then((response) => response.text())
+        .then((response) => {
+            let lines = response.split('\n');
+            let status = lines[9].replace('Status: ', '').trim();
+            let players = '--'
+            let playersOnline = '--'
+            let playerAmount = '--'
+            let map = '--'
+            let mode = '--'
+            if (status == 'Online') {
+                players = lines[10].replace('Players: ', '').trim();
+                playersOnline = players.split('/')[0].trim();
+                playerAmount = players.split('/')[1].trim();
+                map = lines[11].replace('Map: ', '').trim();
+                mode = lines[12].replace('Mode: ', '').trim();
+                if (mode == 'ctf') {
+                    mode = mode.toUpperCase();
+                }
             }
-            updateServerField(`${prefix}-status`, status);
-            updateServerField(`${prefix}-players-online`, playersOnline);
-            updateServerField(`${prefix}-players-amount`, playerAmount);
-            updateServerField(`${prefix}-map`, map);
-            updateServerField(`${prefix}-mode`, mode);
-            document.getElementById(`${prefix}-status`).classList.remove(`text-bg-success`);
-            document.getElementById(`${prefix}-status`).classList.remove(`text-bg-danger`);
-            document.getElementById(`${prefix}-status`).classList.add(`text-bg-success`);
-        } else {
-            updateServerField(`${prefix}-status`, status);
-            updateServerField(`${prefix}-players-online`, `--`);
-            updateServerField(`${prefix}-players-amount`, `--`);
-            updateServerField(`${prefix}-map`, `--`);
-            updateServerField(`${prefix}-mode`, `--`);
-            document.getElementById(`${prefix}-status`).classList.remove(`text-bg-success`);
-            document.getElementById(`${prefix}-status`).classList.remove(`text-bg-danger`);
-            document.getElementById(`${prefix}-status`).classList.add(`text-bg-danger`);
-        }
-        if (callback) {
-            callback();
-        }
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-}
-
-function updateServerField(id, value) {
-    document.getElementById(id).innerHTML = value;
+            template = template.replaceAll('{{ID}}', server.id);
+            template = template.replaceAll('{{ID}}', server.id);
+            template = template.replaceAll('{{NAME}}', server.name);
+            template = template.replaceAll('{{ADDRESS}}', server.address);
+            template = template.replaceAll('{{STATUS}}', status);
+            template = template.replaceAll('{{ONLINE_PLAYERS}}', playersOnline);
+            template = template.replaceAll('{{MAX_PLAYERS}}', playerAmount);
+            template = template.replaceAll('{{MAP}}', map);
+            template = template.replaceAll('{{MODE}}', mode);
+            template = template.replaceAll('{{STATUS_COLOR}}', status == 'Online' ? 'text-bg-success' : 'text-bg-danger');
+            $("#server-list").append(template);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 }
 
 function initGallery() {
@@ -108,6 +108,13 @@ function setupScrollEventListener() {
             $(btnTop).fadeIn();
         }
     });
+}
+
+function padZero(value) {
+    if (`${value}`.length == 1) {
+        return '0' + value;
+    }
+    return value;
 }
 
 init();
