@@ -1,4 +1,4 @@
-const MOCK_DATA = true;
+const MOCK_DATA = false;
 const REFRESH_DELAY_SECONDS = 60;
 const SERVERS = [
     { id: 1, name: "Europe (Netherlands)", address: "89.38.98.12:24711", statusUrl: "https://cenation.co.uk/status.php", mockStatusUrl: "./mock.txt" },
